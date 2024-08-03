@@ -9,7 +9,7 @@ pipeline {
                 script {
                     sshagent(['ec2-ssh-key']) {
                         sh '''
-                            ssh -v -o StrictHostKeyChecking=no ubuntu@ec2-34-245-229-198.eu-west-1.compute.amazonaws.com "echo 'Pulling Docker image...'; docker pull norgee231/react-otka-auth:latest"
+                            ssh -v -o StrictHostKeyChecking=no ubuntu@ec2-34-243-198-196.eu-west-1.compute.amazonaws.com "echo 'Pulling Docker image...'; docker pull norgee231/react-otka-auth:latest"
                         '''
                     }
                 }
@@ -20,7 +20,7 @@ pipeline {
                 script {
                     sshagent(['ec2-ssh-key']) {
                         sh '''
-                            ssh -v -o StrictHostKeyChecking=no ubuntu@ec2-34-245-229-198.eu-west-1.compute.amazonaws.com "echo 'Running Docker container...'; docker stop react-otka-auth || true; docker rm react-otka-auth || true; docker run -d -p 3000:3000 --name react-otka-auth norgee231/react-otka-auth:latest"
+                            ssh -v -o StrictHostKeyChecking=no ubuntu@ec2-34-243-198-196.eu-west-1.compute.amazonaws.com "echo 'Running Docker container...'; docker stop react-otka-auth || true; docker rm react-otka-auth || true; docker run -d -p 3000:3000 --name react-otka-auth norgee231/react-otka-auth:latest"
                         '''
                     }
                 }
